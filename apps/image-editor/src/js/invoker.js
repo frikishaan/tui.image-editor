@@ -182,10 +182,8 @@ class Invoker {
       command = null;
     }
     if (command) {
-      if (this.isEmptyUndoStack()) {
-        this._fireUndoStackChanged();
-      }
       promise = this._invokeUndo(command);
+      this._fireUndoStackChanged();
     } else {
       message = rejectMessages.undo;
       if (this._isLocked) {
